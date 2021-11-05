@@ -18,7 +18,6 @@ class Tradutor(object):
 
     def replaces(self, token, flag=''):
         if not flag:
-            print(token)
             self.out_text += self.meaning[token]
         elif flag == 'OP':
             if token in self.same_ops:
@@ -59,7 +58,6 @@ class Tradutor(object):
                 self.expected = ['ID']
             elif tyype == '=':
                 self.out_text += token
-                print(self.pilha)
                 self.expected = ['ID', self.pilha]
             elif tyype == 'ID':
                 self.out_text += token

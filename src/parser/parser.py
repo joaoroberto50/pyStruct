@@ -13,10 +13,8 @@ words = ['int', 'str', 'flt', 'boo', 'if', 'while', 'else', 'show', 'NULL', 'fal
 
 opers = ['+', '-', '/', '*', '++', '==', '&&', '||', '<', '>', '<=', '>=', '--', '^']
 
-exemplo = "\nfunc main(){\n\tint a, b, c= -3;\n\tflt x= -5.1, y = 1.1;\n\ta = 11 - 1;\n\tb = a + c;\n\tnome = 'joao';\n\twhile(c== 0){\n\t\tshow(nome);\n\tc--;\n\t}\n\tprint(b);\n\tif(a>c){\n\t\tprint(a);\n\t}else{\n\t\tprint(b);\n\t}\n}\n"
-ex2 = "show('Emidios');"
+#exemplo = "\nfunc main(){\n\tint a, b, c= -3;\n\tflt x= -5.1, y = 1.1;\n\ta = 11 - 1;\n\tb = a + c;\n\tnome = 'joao';\n\twhile(c== 0){\n\t\tshow(nome);\n\tc--;\n\t}\n\tprint(b);\n\tif(a>c){\n\t\tprint(a);\n\t}else{\n\t\tprint(b);\n\t}\n}\n"
 
-# trans = Tradutor()
 
 def clean_code(exemplo):
     exemplo = exemplo.split('\n')
@@ -50,9 +48,6 @@ def is_int(token):
     return False
 
 
-# print(exemplo)
-
-
 def tokenize(text):
     trans = Tradutor()
     text = clean_code(text)
@@ -68,7 +63,6 @@ def tokenize(text):
                 # i = ' '
             if op in opers:
                 trans.replaces(op, 'OP')
-                print(f'OP:{op}')
                 i = ' '
             if op == '=':
                 trans.apply('=', '=')

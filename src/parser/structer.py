@@ -54,7 +54,6 @@ def check(text):
         if item == "'":
             if not pilha or pilha[-1] != "'" and pilha[-1] != '"':
                 pilha += "'"
-                print('entrou:' + pilha)
             elif pilha[-1] == "'":
                 pilha = pilha[:-1]
 
@@ -63,7 +62,6 @@ def check(text):
                 pilha += '"'
             elif pilha[-1] == '"':
                 pilha = pilha[:-1]
-        print(item)
     
     # Verifica se ainda existem elementos na pilha.
     if pilha:
