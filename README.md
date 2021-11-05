@@ -4,7 +4,8 @@
 >Projeto final da disciplina de compiladores do semestre 2020.1
 
 ### Como executar:
-```$ python ./src/setap.py <nome_do_arquivo>.pyst
+```
+$ python ./src/setap.py <nome_do_arquivo>.pyst
 ```
 
 ### Operadores:  
