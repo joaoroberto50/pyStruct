@@ -1,9 +1,9 @@
 ![](img/logo_t.png)  
 
 
-Projeto final da disciplina de Compiladores 2021.1
+>Projeto final da disciplina de compiladores do semestre 2020.1
 
-## Operadores:  
+### Operadores:  
 
 ```
 + 
@@ -24,7 +24,7 @@ Projeto final da disciplina de Compiladores 2021.1
 ||
 ```
 
-## Palavras e símbolos reservados:
+### Palavras e símbolos reservados:
 ```
 while
 if
