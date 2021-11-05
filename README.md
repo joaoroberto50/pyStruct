@@ -54,7 +54,7 @@ false
 ```
 ### Gramática:
 ```
-><digit> ::= 0|1|2|3|4|5|6|7|8|9
+<digit> ::= 0|1|2|3|4|5|6|7|8|9
 <letter> ::= a|...|z|A|...|Z
 <type> ::= int|str|flt|boo
 <id> :: (_|<letter>){ <leter>|<digit> }
