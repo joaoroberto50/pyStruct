@@ -8,7 +8,7 @@ meaning = {'func': 'def', 'show': 'print', 'NULL': 'None', 'false': 'False', 'tr
 
 class Tradutor(object):
     def __init__(self):
-        self.meaning = {'while':'while','if':'if','else':'else','func': 'def', 'show': 'print', 'NULL': 'None', 'false': 'False', 'true':'True', '&&': 'and', '||': 'or', '++':'+=1', '--':'-=1', '^':'**'}
+        self.meaning = {'while':'while','if':'if','else':'else','func': 'def ', 'show': 'print', 'NULL': 'None', 'false': 'False', 'true':'True', '&&': 'and', '||': 'or', '++':'+=1', '--':'-=1', '^':'**'}
         self.same_ops = ['+', '-', '/', '*', '==', '<=', '>=', '<', '>']
         self.ident = ''
         self.out_text = ''
@@ -24,7 +24,8 @@ class Tradutor(object):
             if token in self.same_ops:
                 self.out_text += token
             else:
-                self.apply(token)
+                self.out_text += self.meaning[token]
+                #self.apply(token)
         else:
             self.out_text += self.meaning[token]
 
@@ -39,7 +40,7 @@ class Tradutor(object):
             self.semicolon()
             return
         if self.pilha == 'srt':
-            self.out_text += '="python"'
+            self.out_text += '="pyStruct"'
             self.semicolon()
             return
         if self.pilha == 'boo':
@@ -52,17 +53,22 @@ class Tradutor(object):
         if self.expected and tyype in self.expected:
             #self.out_text += token
             #if tyype == 'ID':
-             #   self.expected = [',', '=']
+            #    self.expected = [',', '=']
             if tyype == ',':
                 self.patern_type()
                 self.expected = ['ID']
             elif tyype == '=':
                 self.out_text += token
-                self.expected['ID', self.pilha]
-            if tyype == self.pilha or tyype == 'ID':
+                print(self.pilha)
+                self.expected = ['ID', self.pilha]
+            elif tyype == 'ID':
                 self.out_text += token
+                #self.semicolon()
+                self.expected = [ ',', '=']
+            elif tyype == self.pilha:
+                self.out_text += token
+                self.expected = ['ID', self.pilha]
                 self.semicolon()
-                self.expected = ['ID', ',']
         else:
             if token != ',' and not self.pilha:
                 self.out_text += token
