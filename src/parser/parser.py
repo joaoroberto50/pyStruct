@@ -63,7 +63,6 @@ def tokenize(text):
                 # i = ' '
             if op in opers:
                 trans.replaces(op, 'OP')
-                print(f'OP:{op}')
                 i = ' '
             if op == '=':
                 trans.apply('=', '=')
