@@ -4,7 +4,8 @@
 >Projeto final da disciplina de compiladores do semestre 2020.1
 
 ### Como executar:
-```$ python ./src/setap.py <nome_do_arquivo>.pyst```
+```$ python ./src/setap.py <nome_do_arquivo>.pyst
+```
 
 ### Operadores:  
 
@@ -57,19 +58,21 @@ false
 ```
 ### Exemplo de código
 ```
-func main() {
-    int var1, var2;
-    var1 = 10;
-    var2 = 5;
-    str text = 'pyStruct';
-    if (var1 < 100){
-        print(var1);
-    }else{
-        print(var2);
+func main(){
+    int a, b, c= -3;
+    flt x= -5.1, y = 1.1;
+    a = 11 - 1;
+    b = a + c;
+    nome = 'COMPILADORES';
+    while(c!= 0){
+        show(nome);
+        c++;    
     }
-    while(var2 > 0){
-        print(text);
-        var2--;
+    show(b);
+    if(a> c){
+        show(a);
+    }else{
+        show(b);
     }
 }
 ```
