@@ -1,0 +1,9 @@
+func main(){
+    flt a= 3.0, b = 4.0;
+    flt c;
+    a = a^2;
+    b = b^2;
+    c = a + b;
+    c = c^0.5;
+    show(c);
+}

@@ -69,4 +69,4 @@ def check(text):
     if pilha:
         return _error_msg(pilha[-1])
     else:
-        return pilha
+        return 0
