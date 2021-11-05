@@ -1,5 +1,5 @@
 import re
-from tradutor import Tradutor
+from .tradutor import Tradutor
 
 symbols = [' ', '(', ')', '{', '}', ',', ';', '+', '-', '*', '/', '<', '>', '=', '&', '|', '^']
 
@@ -16,12 +16,14 @@ opers = ['+', '-', '/', '*', '++', '==', '&&', '||', '<', '>', '<=', '>=', '--',
 exemplo = "\nfunc main(){\n\tint a, b, c= -3;\n\tflt x= -5.1, y = 1.1;\n\ta = 11 - 1;\n\tb = a + c;\n\tnome = 'joao';\n\twhile(c== 0){\n\t\tshow(nome);\n\tc--;\n\t}\n\tprint(b);\n\tif(a>c){\n\t\tprint(a);\n\t}else{\n\t\tprint(b);\n\t}\n}\n"
 ex2 = "show('Emidios');"
 
-trans = Tradutor()
+# trans = Tradutor()
 
-exemplo = exemplo.split('\n')
-exemplo = ''.join(exemplo)
-exemplo = exemplo.split('\t')
-exemplo = ''.join(exemplo)
+def clean_code(exemplo):
+    exemplo = exemplo.split('\n')
+    exemplo = ''.join(exemplo)
+    exemplo = exemplo.split('\t')
+    exemplo = ''.join(exemplo)
+    return exemplo
 
 
 def is_id(token):
@@ -52,6 +54,8 @@ def is_int(token):
 
 
 def tokenize(text):
+    trans = Tradutor()
+    text = clean_code(text)
     pilha = ''
     op = ''
     for i in text:
@@ -98,8 +102,7 @@ def tokenize(text):
             elif i == ',':
                 trans.apply(i, ',')
             op += i
+    return trans.out_text
     
 
 
-tokenize(exemplo)
-print(trans.out_text)
