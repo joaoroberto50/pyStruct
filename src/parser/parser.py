@@ -13,7 +13,7 @@ words = ['int', 'str', 'flt', 'boo', 'if', 'while', 'else', 'show', 'NULL', 'fal
 
 opers = ['+', '-', '/', '*', '++', '==', '&&', '||', '<', '>', '<=', '>=', '--', '^']
 
-exemplo = "\nfunc main(){\n\tint a, b, c=-3;\n\tflt x= -5.1, y = 1.1;\n\ta = 11 - 1;\n\tb = a + c;\n\tnome = 'joao';\n\twhile(c==0){\n\t\tshow(nome);\n\tc--;\n\t}\n\tprint(b);\n\tif(a>c){\n\t\tprint(a);\n\t}else{\n\t\tprint(b);\n\t}\n}\n"
+exemplo = "\nfunc main(){\n\tint a, b, c= -3;\n\tflt x= -5.1, y = 1.1;\n\ta = 11 - 1;\n\tb = a + c;\n\tnome = 'joao';\n\twhile(c== 0){\n\t\tshow(nome);\n\tc--;\n\t}\n\tprint(b);\n\tif(a>c){\n\t\tprint(a);\n\t}else{\n\t\tprint(b);\n\t}\n}\n"
 ex2 = "show('Emidios');"
 
 trans = Tradutor()
@@ -61,9 +61,11 @@ def tokenize(text):
         if op:
             if i in symbols and i != ' ' and i != '(':
                 op += i
+                # i = ' '
             if op in opers:
                 trans.replaces(op, 'OP')
                 print(f'OP:{op}')
+                i = ' '
             if op == '=':
                 trans.apply('=', '=')
             op = ''
@@ -95,7 +97,6 @@ def tokenize(text):
                 trans.apply(i)
             elif i == ',':
                 trans.apply(i, ',')
-                print(i)
             op += i
     
 
