@@ -1,7 +1,7 @@
 ![](img/logo_t.png)  
 
 
->Projeto final da disciplina de compiladores do semestre 2022.1
+>Projeto final da disciplina de compiladores do semestre 2021.2
 
 ### Como executar:
 ```
